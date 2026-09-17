@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manjari:wght@400;700&display=swap');
+
+/*
+  Ported from the host site (decrakerubo.com/app/globals.css), trimmed to
+  just the tokens this page actually uses: --font-sans, --font-manjari, the
+  ink/bg/border tokens, --space-x. Entrora's own --ent-pink/--ent-green
+  are defined inline on .ent-page in app/page.tsx, not here.
+*/
+
+:root {
+  --font-sans:    'Plus Jakarta Sans', sans-serif;
+  --font-manjari: 'Manjari', sans-serif;
+
+  --c-bg:            #F5F4F1;
+  --c-surface:       #FAFAF8;
+  --c-ink:           #0D0D0D;
+  --c-ink-mid:       #2E2E2E;
+  --c-ink-muted:     #696969;
+  --c-border:        rgba(13,13,13,0.08);
+  --c-border-strong: rgba(13,13,13,0.16);
+
+  --space-x: clamp(1.5rem, 5.5vw, 7rem);
+}
+
+[data-theme="dark"] {
+  --c-bg:            #0A0A0A;
+  --c-surface:       #111111;
+  --c-ink:           #F0EDE8;
+  --c-ink-mid:       #C8C0B4;
+  --c-ink-muted:     #7A7268;
+  --c-border:        rgba(240,237,232,0.07);
+  --c-border-strong: rgba(240,237,232,0.14);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font-sans);
+}
+
+img { max-width: 100%; display: block; }
