@@ -1,29 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manjari:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manjari:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 
 /*
-  Ported from the host site (decrakerubo.com/app/globals.css), trimmed to
-  just the tokens this page actually uses: --font-sans, --font-manjari, the
-  ink/bg/border tokens, --space-x. Entrora's own --ent-pink/--ent-green
-  are defined inline on .ent-page in app/page.tsx, not here.
-
-  Dark is the default palette (not a JS-applied [data-theme="dark"]
-  override): this standalone page has no theme toggle, so a script that
-  reads localStorage and flips an attribute before hydration just adds a
-  fragile early-script dependency for no behavioural benefit. Making dark
-  the plain :root default means the right theme renders even with no JS.
+  Light theme, one restrained accent, and a serif for display type -
+  ported from the host site's tokens, then rebuilt to read closer to an
+  editorial legal-tech site than a startup landing page: near-black ink
+  on off-white, a single muted colour rather than a bright two-accent
+  system, EB Garamond for headings against Plus Jakarta Sans for body copy.
 */
 
 :root {
   --font-sans:    'Plus Jakarta Sans', sans-serif;
+  --font-serif:   'EB Garamond', Georgia, serif;
   --font-manjari: 'Manjari', sans-serif;
 
-  --c-bg:            #0A0A0A;
-  --c-surface:       #111111;
-  --c-ink:           #F0EDE8;
-  --c-ink-mid:       #C8C0B4;
-  --c-ink-muted:     #7A7268;
-  --c-border:        rgba(240,237,232,0.07);
-  --c-border-strong: rgba(240,237,232,0.14);
+  --c-bg:            #F7F6F2;
+  --c-surface:       #FFFFFF;
+  --c-ink:           #14140F;
+  --c-ink-mid:       #47453F;
+  --c-ink-muted:     #7B7870;
+  --c-border:        rgba(20,20,15,0.09);
+  --c-border-strong: rgba(20,20,15,0.18);
 
   --space-x: clamp(1.5rem, 5.5vw, 7rem);
 }
@@ -41,19 +37,18 @@ body {
 img { max-width: 100%; display: block; }
 
 /* ── Shared design system ──
-   Entrora's own palette, plus header/nav/pill/section primitives used by
+   One accent colour, plus header/nav/pill/section primitives used by
    every page (home, /lpms, ...). Page-specific layout (hero, feature grids,
    colour zones) stays in that page's own <style> block. */
 .ent-page{
-  --ent-pink: #F07FA8;
-  --ent-green: #3E8F73;
+  --ent-accent: #2F5C46;
   --ent-ink: var(--c-ink);
   background: var(--c-bg);
   padding-top: 0;
 }
 
 .ent-wrap{ max-width: 68rem; margin: 0 auto; padding: 0 var(--space-x); width: 100%; }
-.ent-pink{ color: var(--ent-pink); }
+.ent-accent{ color: var(--ent-accent); }
 .ent-measure{ max-width: 38rem; }
 
 /* ── Header ── */
@@ -70,7 +65,7 @@ img { max-width: 100%; display: block; }
 .ent-brand{ display: flex; align-items: center; gap: 0.65rem; text-decoration: none; margin-right: auto; }
 .ent-brand-mark{ width: 34px; height: 34px; object-fit: contain; border-radius: 7px; }
 .ent-brand-text{ display: flex; flex-direction: column; line-height: 1.1; }
-.ent-brand-text strong{ font-family: var(--font-sans); font-weight: 600; font-size: 1.05rem; color: var(--c-ink); letter-spacing: -0.01em; }
+.ent-brand-text strong{ font-family: var(--font-serif); font-weight: 600; font-size: 1.15rem; color: var(--c-ink); letter-spacing: -0.005em; }
 .ent-brand-text em{ font-style: normal; font-family: var(--font-manjari); font-weight: 700; font-size: 0.46rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--c-ink-muted); }
 
 .ent-nav{ display: flex; gap: 2rem; }
@@ -78,7 +73,7 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-sans); font-size: 0.85rem; color: var(--c-ink-mid);
   text-decoration: none; transition: color 0.2s ease;
 }
-.ent-nav a:hover{ color: var(--ent-pink); }
+.ent-nav a:hover{ color: var(--ent-accent); }
 
 .ent-burger{ display: none; background: none; border: none; color: var(--c-ink); cursor: pointer; padding: 0.4rem; }
 .ent-nav-mobile{ display: none; flex-direction: column; padding: 0.5rem var(--space-x) 1.25rem; border-top: 1px solid var(--c-border); }
@@ -95,21 +90,21 @@ img { max-width: 100%; display: block; }
   border: 1px solid transparent; cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
-.ent-pill-solid{ background: var(--ent-green); color: #FFFFFF; }
-.ent-pill-solid:hover{ background: var(--ent-pink); }
+.ent-pill-solid{ background: var(--c-ink); color: var(--c-bg); }
+.ent-pill-solid:hover{ background: var(--ent-accent); color: #FFFFFF; }
 .ent-pill-ghost{ background: transparent; color: var(--c-ink); border-color: var(--c-border-strong); }
-.ent-pill-ghost:hover{ border-color: var(--ent-pink); color: var(--ent-pink); }
+.ent-pill-ghost:hover{ border-color: var(--ent-accent); color: var(--ent-accent); }
 
 /* ── Sections ── */
 .ent-section{ padding: clamp(3.5rem, 8vw, 6.5rem) 0; border-top: 1px solid var(--c-border); }
 .ent-tint{ background: var(--c-surface); }
 .ent-eyebrow{ display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.25rem; font-family: var(--font-manjari); font-weight: 700; font-size: 0.55rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--c-ink-muted); }
-.ent-rule{ display: inline-block; width: 1.5rem; height: 1px; background: var(--ent-pink); }
+.ent-rule{ display: inline-block; width: 1.5rem; height: 1px; background: var(--ent-accent); }
 
 .ent-h2{
-  font-family: var(--font-sans); font-weight: 700;
-  font-size: clamp(1.5rem, 3.2vw, 2.4rem); line-height: 1.15;
-  letter-spacing: -0.02em; color: var(--c-ink); margin-bottom: 1.1rem;
+  font-family: var(--font-serif); font-weight: 500;
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem); line-height: 1.18;
+  letter-spacing: -0.01em; color: var(--c-ink); margin-bottom: 1.1rem;
 }
 .ent-h2-center{ text-align: center; }
 .ent-body{ font-family: var(--font-sans); font-size: 0.92rem; line-height: 1.7; color: var(--c-ink-mid); margin-bottom: 1.25rem; }
@@ -131,22 +126,22 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.24em; text-transform: uppercase; color: var(--c-ink-muted);
 }
 .ent-stats-row{ display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 1.5rem; }
-.ent-stat{ border-top: 2px solid var(--ent-pink); padding-top: 0.9rem; }
+.ent-stat{ border-top: 2px solid var(--ent-accent); padding-top: 0.9rem; }
 .ent-stat strong{
-  display: block; font-family: var(--font-sans); font-weight: 700;
+  display: block; font-family: var(--font-serif); font-weight: 600;
   font-size: clamp(1.9rem, 4.5vw, 2.9rem); line-height: 1;
-  letter-spacing: -0.03em; color: var(--c-ink); margin-bottom: 0.4rem;
+  letter-spacing: -0.01em; color: var(--c-ink); margin-bottom: 0.4rem;
 }
 .ent-stat span{ font-family: var(--font-sans); font-size: 0.78rem; line-height: 1.4; color: var(--c-ink-muted); }
 
 /* ── Footer ── */
 .ent-footer{ border-top: 1px solid var(--c-border); padding: 2.5rem 0; }
 .ent-footer-inner{ display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
-.ent-footer-inner strong{ display: block; font-family: var(--font-sans); font-weight: 600; font-size: 0.9rem; color: var(--c-ink); }
+.ent-footer-inner strong{ display: block; font-family: var(--font-serif); font-weight: 600; font-size: 1rem; color: var(--c-ink); }
 .ent-footer-inner span{ font-family: var(--font-sans); font-size: 0.78rem; color: var(--c-ink-muted); }
 .ent-footer-links{ display: flex; gap: 1.75rem; flex-wrap: wrap; }
 .ent-footer-links a{ font-family: var(--font-sans); font-size: 0.8rem; color: var(--c-ink-muted); text-decoration: none; }
-.ent-footer-links a:hover{ color: var(--ent-pink); }
+.ent-footer-links a:hover{ color: var(--ent-accent); }
 
 @media(max-width:820px){
   .ent-nav, .ent-header-cta{ display: none; }

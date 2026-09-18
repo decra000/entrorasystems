@@ -159,25 +159,24 @@ export default function EntroraPage() {
 
       {/* ── Hero ── */}
       <section className="ent-hero">
-        <span aria-hidden className="ent-blob ent-blob-green" />
-        <span aria-hidden className="ent-blob ent-blob-pink" />
+        <span aria-hidden className="ent-blob" />
 
         <div className="ent-wrap" style={fade(heroVis)}>
           <div className="ent-hero-grid">
             <div>
               <h1 className="ent-h1">
                 <span>Tech</span>
-                <span className="ent-pink">for Law.</span>
+                <span className="ent-accent">for Law.</span>
               </h1>
 
               <div className="ent-dashes" aria-hidden>
-                <span className="ent-dash-pink" />
-                <span className="ent-dash-green" />
+                <span className="ent-dash-ink" />
+                <span className="ent-dash-accent" />
               </div>
 
               <p className="ent-lead">
                 We build the bridge between law and technology to create ethical, compliant and impactful
-                solutions for <span className="ent-pink">African realities</span>.
+                solutions for <span className="ent-accent">African realities</span>.
               </p>
 
               <div className="ent-cta-row">
@@ -238,7 +237,7 @@ export default function EntroraPage() {
             <span className="ent-chip">Evolved. Expanded. Empowering legal teams.</span>
             <h2 className="ent-h2 ent-h2-center">
               From Legal Chatbot to<br />
-              <span className="ent-pink">End-to-End Legal Practice Management.</span>
+              <span className="ent-accent">End-to-End Legal Practice Management.</span>
             </h2>
             <p className="ent-body ent-center-p">
               Teresya started the conversation. Now it powers an entire ecosystem.
@@ -285,7 +284,7 @@ export default function EntroraPage() {
           </div>
 
           <p className="ent-closer" style={fade(lpmsVis, 0.16)}>
-            Same intelligence. Bigger impact. <span className="ent-pink">Introducing Entrora LPMS.</span>
+            Same intelligence. Bigger impact. <span className="ent-accent">Introducing Entrora LPMS.</span>
             <em>Offering customizable options, shaped to the practice they serve.</em>
           </p>
         </div>
@@ -410,9 +409,11 @@ export default function EntroraPage() {
       <style>{`
         /* ── Hero ── */
         .ent-hero{ position: relative; overflow: hidden; padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5.5rem); }
-        .ent-blob{ position: absolute; border-radius: 50%; filter: blur(10px); pointer-events: none; opacity: 0.5; }
-        .ent-blob-green{ width: 34rem; height: 34rem; left: -18rem; top: -8rem; background: radial-gradient(circle, rgba(62,143,115,0.28), transparent 68%); }
-        .ent-blob-pink{ width: 40rem; height: 40rem; right: -20rem; bottom: -16rem; background: radial-gradient(circle, rgba(225,86,138,0.22), transparent 68%); }
+        .ent-blob{
+          position: absolute; border-radius: 50%; filter: blur(10px); pointer-events: none; opacity: 0.6;
+          width: 40rem; height: 40rem; right: -20rem; top: -14rem;
+          background: radial-gradient(circle, rgba(47,92,70,0.10), transparent 68%);
+        }
 
         .ent-hero-grid{
           position: relative; z-index: 1;
@@ -425,15 +426,15 @@ export default function EntroraPage() {
 
         .ent-h1{
           position: relative; z-index: 1;
-          font-family: var(--font-sans); font-weight: 700;
-          font-size: clamp(2.4rem, 6.4vw, 4.6rem); line-height: 1.04;
-          letter-spacing: -0.03em; color: var(--c-ink);
+          font-family: var(--font-serif); font-weight: 500;
+          font-size: clamp(2.6rem, 6.6vw, 4.8rem); line-height: 1.05;
+          letter-spacing: -0.01em; color: var(--c-ink);
           display: flex; flex-direction: column; margin-bottom: 1.75rem;
         }
         .ent-dashes{ display: flex; gap: 0.75rem; margin-bottom: 1.75rem; }
-        .ent-dash-pink, .ent-dash-green{ display: block; width: 4.5rem; height: 2px; }
-        .ent-dash-pink{ background: var(--ent-pink); }
-        .ent-dash-green{ background: var(--ent-green); }
+        .ent-dash-ink, .ent-dash-accent{ display: block; width: 4.5rem; height: 2px; }
+        .ent-dash-ink{ background: var(--c-ink); }
+        .ent-dash-accent{ background: var(--ent-accent); }
 
         .ent-lead{
           position: relative; z-index: 1;
@@ -465,7 +466,7 @@ export default function EntroraPage() {
           border: 1px solid var(--c-border-strong); border-radius: 999px;
           padding: 0.45rem 1.1rem;
           font-family: var(--font-manjari); font-weight: 700; font-size: 0.55rem;
-          letter-spacing: 0.2em; text-transform: uppercase; color: var(--ent-pink);
+          letter-spacing: 0.2em; text-transform: uppercase; color: var(--ent-accent);
         }
 
         .ent-evolution{ display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1.3fr); gap: clamp(1.25rem, 3vw, 2.5rem); align-items: center; margin-bottom: 3rem; }
@@ -483,9 +484,9 @@ export default function EntroraPage() {
         .ent-prod h3{ font-family: var(--font-sans); font-weight: 700; font-size: 1.3rem; color: var(--c-ink); letter-spacing: -0.01em; }
         .ent-prod-kicker{ display: block; font-family: var(--font-manjari); font-weight: 700; font-size: 0.5rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--c-ink-muted); margin: 0.3rem 0 0.9rem; }
         .ent-prod p{ font-family: var(--font-sans); font-size: 0.85rem; line-height: 1.6; color: var(--c-ink-mid); }
-        .ent-prod-wide{ border-color: var(--ent-pink); }
+        .ent-prod-wide{ border-color: var(--ent-accent); }
         .ent-demo-row{ margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
-        .ent-arrow{ color: var(--ent-pink); display: flex; justify-content: center; }
+        .ent-arrow{ color: var(--ent-accent); display: flex; justify-content: center; }
 
         .ent-features{ display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 1px; background: var(--c-border); border: 1px solid var(--c-border); border-radius: 14px; overflow: hidden; }
         .ent-feature{ background: var(--c-bg); padding: 1.4rem; }
@@ -501,57 +502,42 @@ export default function EntroraPage() {
         .ent-shot{ margin-top: 2.5rem; }
 
         /* ── Colour zoning ──
-           Each strip takes a background sampled from the artwork it carries,
-           so the section reads as that product's territory. The backgrounds
-           are fixed rather than themed, so the text colours inside them are
-           pinned too: a zone that is always near-black cannot inherit ink
-           that flips to near-black in light mode. */
-
-        /* Predominantly white, with the theme colours kept at a distance. */
+           The flagship strip needs no special treatment now that the whole
+           page is light; it just gets a faint accent wash. Ynai keeps a
+           deliberate dark band, sampled from its own screenshot, as the
+           one moment of contrast on an otherwise light page. Lex & Latte's
+           parchment tint sits close to the base palette by design. */
         .ent-zone-flagship{
-          background:
-            radial-gradient(120% 90% at 88% 8%, rgba(225,86,138,0.07), transparent 60%),
-            radial-gradient(110% 80% at 4% 96%, rgba(62,143,115,0.09), transparent 62%),
-            linear-gradient(180deg, #FFFFFF 0%, #FCFDFC 100%);
-          color: #14181B;
+          background: radial-gradient(120% 90% at 88% 4%, rgba(47,92,70,0.05), transparent 60%);
         }
-        .ent-zone-flagship .ent-h2,
-        .ent-zone-flagship .ent-stat strong{ color: #14181B; }
-        .ent-zone-flagship .ent-body,
-        .ent-zone-flagship .ent-stat span,
-        .ent-zone-flagship .ent-eyebrow,
-        .ent-zone-flagship .ent-stats-label{ color: #55606A; }
-        .ent-zone-flagship .ent-shot{ border-color: rgba(20,24,27,0.10); background: #FFFFFF; }
-        .ent-zone-flagship .ent-pill-ghost{ color: #14181B; border-color: rgba(20,24,27,0.18); }
-        .ent-zone-flagship .ent-pill-ghost:hover{ border-color: var(--ent-pink); color: var(--ent-pink); }
 
-        /* Sampled from the Ynai screen: black with a green cast. */
+        /* Sampled from the Ynai screen: near-black with a green cast. */
         .ent-zone-ynai{
-          background: linear-gradient(135deg, #000000 0%, #04120D 52%, #082016 100%);
-          color: #EDF3EF;
+          background: linear-gradient(135deg, #0B0F0C 0%, #10160F 52%, #131A15 100%);
+          color: #E7EAE5;
         }
-        .ent-zone-ynai .ent-h2{ color: #FFFFFF; }
-        .ent-zone-ynai .ent-body{ color: #C3D2CA; }
-        .ent-zone-ynai .ent-body-sm{ color: #93A79C; }
-        .ent-zone-ynai .ent-eyebrow{ color: #7FCBA6; }
-        .ent-zone-ynai .ent-rule{ background: #3DDC84; }
+        .ent-zone-ynai .ent-h2{ color: #FBFAF7; }
+        .ent-zone-ynai .ent-body{ color: #C7CCC4; }
+        .ent-zone-ynai .ent-body-sm{ color: #9AA098; }
+        .ent-zone-ynai .ent-eyebrow{ color: #85A895; }
+        .ent-zone-ynai .ent-rule{ background: #6FA084; }
         .ent-zone-ynai .ent-partner-art{ border-color: rgba(255,255,255,0.12); }
-        .ent-zone-ynai .ent-pill-solid{ background: #1B7F52; color: #FFFFFF; }
-        .ent-zone-ynai .ent-pill-solid:hover{ background: #3DDC84; color: #04120D; }
+        .ent-zone-ynai .ent-pill-solid{ background: var(--ent-accent); color: #FFFFFF; }
+        .ent-zone-ynai .ent-pill-solid:hover{ background: #6FA084; color: #0B0F0C; }
 
         /* Sampled from the Lex & Latte mark: warm parchment. */
         .ent-zone-lex{
-          background: linear-gradient(135deg, #F5EFE2 0%, #EADFC8 55%, #DCCBA9 100%);
+          background: linear-gradient(135deg, #F1EADB 0%, #E9DFC9 55%, #DED0AF 100%);
           color: #2A2318;
         }
         .ent-zone-lex .ent-h2{ color: #241D13; }
         .ent-zone-lex .ent-body{ color: #574A38; }
         .ent-zone-lex .ent-body-sm{ color: #7A6B54; }
         .ent-zone-lex .ent-eyebrow{ color: #7A6B54; }
-        .ent-zone-lex .ent-rule{ background: #8A6D2B; }
+        .ent-zone-lex .ent-rule{ background: var(--ent-accent); }
         .ent-zone-lex .ent-news-art{ border-color: rgba(42,35,24,0.14); background: #FBF7EE; }
-        .ent-zone-lex .ent-pill-solid{ background: #2F4A38; color: #FFFFFF; }
-        .ent-zone-lex .ent-pill-solid:hover{ background: #8A6D2B; }
+        .ent-zone-lex .ent-pill-solid{ background: var(--ent-accent); color: #FFFFFF; }
+        .ent-zone-lex .ent-pill-solid:hover{ background: #24493A; }
 
         /* Title and its call to action share a row, dropping apart only when
            there is no longer width for both. */
@@ -578,10 +564,10 @@ export default function EntroraPage() {
           transition: border-color 0.2s ease;
         }
         .ent-field textarea{ resize: vertical; min-height: 7rem; }
-        .ent-field input:focus, .ent-field textarea:focus{ outline: none; border-color: var(--ent-pink); }
+        .ent-field input:focus, .ent-field textarea:focus{ outline: none; border-color: var(--ent-accent); }
         .ent-form-foot{ display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
         .ent-form button[disabled]{ opacity: 0.6; cursor: default; }
-        .ent-form-error{ font-family: var(--font-sans); font-size: 0.8rem; color: var(--ent-pink); }
+        .ent-form-error{ font-family: var(--font-sans); font-size: 0.8rem; color: #A8402F; }
         .ent-form-done{ border: 1px solid var(--c-border); border-radius: 14px; padding: 2rem; background: var(--c-surface); }
         .ent-form-done h3{ font-family: var(--font-sans); font-weight: 600; font-size: 1.05rem; color: var(--c-ink); margin-bottom: 0.6rem; }
         .ent-form-done p{ font-family: var(--font-sans); font-size: 0.85rem; line-height: 1.6; color: var(--c-ink-muted); }
@@ -590,13 +576,6 @@ export default function EntroraPage() {
         .ent-partner-art{ border: 1px solid var(--c-border); border-radius: 18px; overflow: hidden; background: #0A0A0A; }
         .ent-partner-img{ width: 100%; height: auto; display: block; }
 
-
-        /* ── Solutions ── */
-        .ent-solutions{ display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1px; background: var(--c-border); border: 1px solid var(--c-border); border-radius: 14px; overflow: hidden; margin-top: 2rem; }
-        .ent-solution{ background: var(--c-bg); padding: 1.85rem; }
-        .ent-num{ display: block; font-family: var(--font-manjari); font-weight: 700; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--ent-pink); margin-bottom: 0.9rem; }
-        .ent-solution h3{ font-family: var(--font-sans); font-weight: 600; font-size: 0.98rem; color: var(--c-ink); margin-bottom: 0.55rem; }
-        .ent-solution p{ font-family: var(--font-sans); font-size: 0.82rem; line-height: 1.6; color: var(--c-ink-muted); }
 
         /* ── Newsletter ── */
         .ent-news{ display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; margin-top: 1rem; }

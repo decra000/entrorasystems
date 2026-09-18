@@ -81,7 +81,7 @@ export default function LpmsPage() {
           <Eyebrow text="Flagship product" />
           <h1 className="lp-h1">
             Entrora LPMS.<br />
-            <span className="ent-pink">One system, end to end.</span>
+            <span className="ent-accent">One system, end to end.</span>
           </h1>
           <p className="ent-body lp-lead">
             Legal practice management built around one rule: nothing gets copied from one place to another
@@ -213,9 +213,9 @@ export default function LpmsPage() {
       <style>{`
         .lp-hero{ padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2rem, 5vw, 3rem); }
         .lp-h1{
-          font-family: var(--font-sans); font-weight: 700;
-          font-size: clamp(2.2rem, 5.6vw, 3.8rem); line-height: 1.06;
-          letter-spacing: -0.03em; color: var(--c-ink); margin-bottom: 1.5rem;
+          font-family: var(--font-serif); font-weight: 500;
+          font-size: clamp(2.4rem, 5.8vw, 4rem); line-height: 1.08;
+          letter-spacing: -0.01em; color: var(--c-ink); margin-bottom: 1.5rem;
         }
         .lp-lead{ max-width: 40rem; font-size: clamp(0.95rem, 1.2vw, 1.05rem); margin-bottom: 2rem; }
 
@@ -226,12 +226,12 @@ export default function LpmsPage() {
         }
         .lp-pipe-step{ position: relative; }
         .lp-pipe-head{ display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.6rem; }
-        .lp-pipe-num{ font-family: var(--font-manjari); font-weight: 700; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--ent-pink); }
+        .lp-pipe-num{ font-family: var(--font-manjari); font-weight: 700; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--ent-accent); }
         .lp-pipe-step h3{ font-family: var(--font-sans); font-weight: 600; font-size: 0.98rem; color: var(--c-ink); }
         .lp-pipe-step p{ font-family: var(--font-sans); font-size: 0.82rem; line-height: 1.65; color: var(--c-ink-muted); }
         .lp-pipe-arrow{
           display: none; position: absolute; top: 0.15rem; right: -1.25rem;
-          color: var(--ent-pink); opacity: 0.5;
+          color: var(--ent-accent); opacity: 0.5;
         }
         @media(min-width: 821px){
           .lp-pipeline{ grid-template-columns: repeat(4, 1fr); }
