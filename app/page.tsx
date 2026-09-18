@@ -1,14 +1,18 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ArrowRight, ExternalLink, Menu, X } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ExternalLink } from "lucide-react";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { Eyebrow } from "@/components/Eyebrow";
+import { ENTRORA_LINKEDIN, NEWSLETTER_URL, DEMO_URL, YNAI_URL, CONTACT_API_URL } from "@/lib/constants";
 
 /* Entrora, standalone: extracted from decrakerubo.com/entrora so it can be
-   deployed and, eventually, domained on its own. Everything on this page
-   was already self-contained (no shared components, no "@/" imports), the
-   one thing that wasn't is the contact form below, which used to post to
-   this same origin's /api/contact and now posts to decrakerubo.com's
-   instead, see CONTACT_API_URL. */
+   deployed and, eventually, domained on its own. The one thing that wasn't
+   self-contained on the original page was the contact form below, which
+   used to post to this same origin's /api/contact and now posts to
+   decrakerubo.com's instead, see CONTACT_API_URL. */
 
 function useReveal() {
   const ref = useRef<HTMLElement>(null);
@@ -25,24 +29,6 @@ const fade = (vis: boolean, delay = 0): React.CSSProperties => ({
   opacity: vis ? 1 : 0, transform: vis ? "none" : "translateY(18px)",
   transition: `opacity 0.8s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform 0.8s cubic-bezier(0.16,1,0.3,1) ${delay}s`,
 });
-
-const ENTRORA_LINKEDIN = "https://www.linkedin.com/company/entrora/";
-const NEWSLETTER_URL = "https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7241946044966592512";
-/** Demo bookings are taken on Calendly rather than through the host site. */
-const DEMO_URL = "https://calendly.com/decrakerubo/";
-const YNAI_URL = "https://www.ynai.co.ke/";
-/** This site has no server, so the contact form posts to decrakerubo.com's
- *  existing /api/contact (which sends the CORS headers to allow it). */
-const CONTACT_API_URL = "https://decrakerubo.com/api/contact";
-
-const NAV = [
-  { href: "#initiative", label: "About" },
-  { href: "#solutions", label: "Solutions" },
-  { href: "#platform", label: "Flagship" },
-  { href: "#partners", label: "Partners" },
-  { href: "#newsletter", label: "Insights" },
-  { href: "#contact", label: "Contact" },
-];
 
 const PILLARS = [
   { t: "Tech for Law", b: "Better legal systems through technology." },
@@ -155,51 +141,6 @@ function ContactForm() {
         )}
       </div>
     </form>
-  );
-}
-
-function Eyebrow({ text }: { text: string }) {
-  return (
-    <div className="ent-eyebrow">
-      <span className="ent-rule" />
-      <span>{text}</span>
-    </div>
-  );
-}
-
-function Header() {
-  const [open, setOpen] = useState(false);
-  return (
-    <header className="ent-header">
-      <div className="ent-header-inner">
-        <a href="#top" className="ent-brand">
-          <Image src="/entrora_logo.jpg" alt="" width={200} height={200} priority className="ent-brand-mark" />
-          <span className="ent-brand-text">
-            <strong>Entrora</strong>
-            <em>Legal Engineering</em>
-          </span>
-        </a>
-
-        <nav className="ent-nav">
-          {NAV.map((n) => <a key={n.href} href={n.href}>{n.label}</a>)}
-        </nav>
-
-        <a href="#contact" className="ent-pill ent-pill-solid ent-header-cta">
-          Get in touch <ArrowRight size={13} strokeWidth={2} />
-        </a>
-
-        <button type="button" className="ent-burger" aria-expanded={open} aria-label="Menu" onClick={() => setOpen(!open)}>
-          {open ? <X size={18} /> : <Menu size={18} />}
-        </button>
-      </div>
-
-      {open && (
-        <nav className="ent-nav-mobile">
-          {NAV.map((n) => <a key={n.href} href={n.href} onClick={() => setOpen(false)}>{n.label}</a>)}
-          <a href="#contact" onClick={() => setOpen(false)}>Get in touch</a>
-        </nav>
-      )}
-    </header>
   );
 }
 
@@ -324,9 +265,14 @@ export default function EntroraPage() {
               <h3>Entrora LPMS</h3>
               <span className="ent-prod-kicker">Legal Practice Management System</span>
               <p>The all-in-one platform to manage matters, clients, documents, time, billing and more, seamlessly.</p>
-              <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="ent-pill ent-pill-solid ent-demo">
-                Book a demo <ArrowRight size={13} strokeWidth={2} />
-              </a>
+              <div className="ent-demo-row">
+                <Link href="/lpms" className="ent-pill ent-pill-ghost">
+                  Explore Entrora LPMS <ArrowRight size={13} strokeWidth={2} />
+                </Link>
+                <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="ent-pill ent-pill-solid">
+                  Book a demo <ArrowRight size={13} strokeWidth={2} />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -353,9 +299,14 @@ export default function EntroraPage() {
             <Eyebrow text="Flagship product" />
             <div className="ent-strip-head">
               <h2 className="ent-h2">Entrora LPMS. One system, end to end.</h2>
-              <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="ent-pill ent-pill-solid">
-                Book a demo <ArrowRight size={13} strokeWidth={2} />
-              </a>
+              <div className="ent-demo-row">
+                <Link href="/lpms" className="ent-pill ent-pill-ghost">
+                  Full product page <ArrowRight size={13} strokeWidth={2} />
+                </Link>
+                <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="ent-pill ent-pill-solid">
+                  Book a demo <ArrowRight size={13} strokeWidth={2} />
+                </a>
+              </div>
             </div>
             <p className="ent-body ent-measure">
               An enquiry arrives, gets triaged, becomes a matter, gathers its documents and its time, bills,
@@ -455,80 +406,9 @@ export default function EntroraPage() {
         </div>
       </section>
 
-      {/* ── Footer ── */}
-      <footer className="ent-footer">
-        <div className="ent-wrap ent-footer-inner">
-          <div>
-            <strong>Entrora Systems</strong>
-            <span>Legal Engineering, Nairobi</span>
-          </div>
-          <div className="ent-footer-links">
-            <a href={ENTRORA_LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href={NEWSLETTER_URL} target="_blank" rel="noopener noreferrer">Lex &amp; Latte</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       <style>{`
-        /* Entrora's own palette, scoped to this page so it never leaks into
-           the host site's tokens. Pink is the brand's second colour and has
-           no equivalent in the design system here. */
-        .ent-page{
-          --ent-pink: #F07FA8;
-          --ent-green: #3E8F73;
-          --ent-ink: var(--c-ink);
-          background: var(--c-bg);
-          padding-top: 0;
-        }
-
-        .ent-wrap{ max-width: 68rem; margin: 0 auto; padding: 0 var(--space-x); width: 100%; }
-        .ent-pink{ color: var(--ent-pink); }
-        .ent-measure{ max-width: 38rem; }
-
-        /* ── Header ── */
-        .ent-header{
-          position: sticky; top: 0; z-index: 40;
-          background: color-mix(in srgb, var(--c-bg) 88%, transparent);
-          backdrop-filter: blur(10px);
-          border-bottom: 1px solid var(--c-border);
-        }
-        .ent-header-inner{
-          max-width: 68rem; margin: 0 auto; padding: 0.85rem var(--space-x);
-          display: flex; align-items: center; gap: 1.5rem;
-        }
-        .ent-brand{ display: flex; align-items: center; gap: 0.65rem; text-decoration: none; margin-right: auto; }
-        .ent-brand-mark{ width: 34px; height: 34px; object-fit: contain; border-radius: 7px; }
-        .ent-brand-text{ display: flex; flex-direction: column; line-height: 1.1; }
-        .ent-brand-text strong{ font-family: var(--font-sans); font-weight: 600; font-size: 1.05rem; color: var(--c-ink); letter-spacing: -0.01em; }
-        .ent-brand-text em{ font-style: normal; font-family: var(--font-manjari); font-weight: 700; font-size: 0.46rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--c-ink-muted); }
-
-        .ent-nav{ display: flex; gap: 2rem; }
-        .ent-nav a{
-          font-family: var(--font-sans); font-size: 0.85rem; color: var(--c-ink-mid);
-          text-decoration: none; transition: color 0.2s ease;
-        }
-        .ent-nav a:hover{ color: var(--ent-pink); }
-
-        .ent-burger{ display: none; background: none; border: none; color: var(--c-ink); cursor: pointer; padding: 0.4rem; }
-        .ent-nav-mobile{ display: none; flex-direction: column; padding: 0.5rem var(--space-x) 1.25rem; border-top: 1px solid var(--c-border); }
-        .ent-nav-mobile a{
-          font-family: var(--font-sans); font-size: 0.95rem; color: var(--c-ink-mid);
-          text-decoration: none; padding: 0.75rem 0;
-        }
-
-        /* ── Pills ── */
-        .ent-pill{
-          display: inline-flex; align-items: center; gap: 0.5rem;
-          font-family: var(--font-sans); font-weight: 600; font-size: 0.82rem;
-          padding: 0.7rem 1.4rem; border-radius: 999px; text-decoration: none;
-          border: 1px solid transparent; cursor: pointer;
-          transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-        }
-        .ent-pill-solid{ background: var(--ent-green); color: #FFFFFF; }
-        .ent-pill-solid:hover{ background: var(--ent-pink); }
-        .ent-pill-ghost{ background: transparent; color: var(--c-ink); border-color: var(--c-border-strong); }
-        .ent-pill-ghost:hover{ border-color: var(--ent-pink); color: var(--ent-pink); }
-
         /* ── Hero ── */
         .ent-hero{ position: relative; overflow: hidden; padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5.5rem); }
         .ent-blob{ position: absolute; border-radius: 50%; filter: blur(10px); pointer-events: none; opacity: 0.5; }
@@ -561,7 +441,7 @@ export default function EntroraPage() {
           font-family: var(--font-sans); font-size: clamp(0.95rem, 1.3vw, 1.1rem);
           line-height: 1.65; color: var(--c-ink-mid); max-width: 34rem; margin-bottom: 2.25rem;
         }
-        .ent-cta-row{ position: relative; z-index: 1; display: flex; gap: 1rem; flex-wrap: wrap; }
+        .ent-hero .ent-cta-row{ position: relative; z-index: 1; }
 
         .ent-pillars{
           position: relative; z-index: 1;
@@ -572,21 +452,6 @@ export default function EntroraPage() {
         .ent-pillar:first-child{ border-left: none; padding-left: 0; }
         .ent-pillar h2{ font-family: var(--font-sans); font-weight: 600; font-size: 0.92rem; color: var(--c-ink); margin-bottom: 0.4rem; }
         .ent-pillar p{ font-family: var(--font-sans); font-size: 0.8rem; line-height: 1.55; color: var(--c-ink-muted); }
-
-        /* ── Sections ── */
-        .ent-section{ padding: clamp(3.5rem, 8vw, 6.5rem) 0; border-top: 1px solid var(--c-border); }
-        .ent-tint{ background: var(--c-surface); }
-        .ent-eyebrow{ display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.25rem; font-family: var(--font-manjari); font-weight: 700; font-size: 0.55rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--c-ink-muted); }
-        .ent-rule{ display: inline-block; width: 1.5rem; height: 1px; background: var(--ent-pink); }
-
-        .ent-h2{
-          font-family: var(--font-sans); font-weight: 700;
-          font-size: clamp(1.5rem, 3.2vw, 2.4rem); line-height: 1.15;
-          letter-spacing: -0.02em; color: var(--c-ink); margin-bottom: 1.1rem;
-        }
-        .ent-h2-center{ text-align: center; }
-        .ent-body{ font-family: var(--font-sans); font-size: 0.92rem; line-height: 1.7; color: var(--c-ink-mid); margin-bottom: 1.25rem; }
-        .ent-body-sm{ font-size: 0.82rem; color: var(--c-ink-muted); margin-bottom: 1.75rem; }
 
         .ent-grid-4{ display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 2.25rem; margin-top: 3rem; }
         .ent-principle{ border-top: 1px solid var(--c-border); padding-top: 1.1rem; }
@@ -620,7 +485,7 @@ export default function EntroraPage() {
         .ent-prod-kicker{ display: block; font-family: var(--font-manjari); font-weight: 700; font-size: 0.5rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--c-ink-muted); margin: 0.3rem 0 0.9rem; }
         .ent-prod p{ font-family: var(--font-sans); font-size: 0.85rem; line-height: 1.6; color: var(--c-ink-mid); }
         .ent-prod-wide{ border-color: var(--ent-pink); }
-        .ent-demo{ margin-top: 1.5rem; }
+        .ent-demo-row{ margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
         .ent-arrow{ color: var(--ent-pink); display: flex; justify-content: center; }
 
         .ent-features{ display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 1px; background: var(--c-border); border: 1px solid var(--c-border); border-radius: 14px; overflow: hidden; }
@@ -634,27 +499,7 @@ export default function EntroraPage() {
           font-size: 0.85rem; color: var(--c-ink-muted);
         }
 
-        /* Product shot framed like the rest of the artwork on the page. */
-        .ent-shot{
-          border: 1px solid var(--c-border); border-radius: 14px;
-          overflow: hidden; background: var(--c-surface); margin-top: 2.5rem;
-        }
-        .ent-shot-img{ width: 100%; height: auto; display: block; }
-
-        .ent-stats{ margin-top: 2.5rem; }
-        .ent-stats-label{
-          display: block; margin-bottom: 1rem;
-          font-family: var(--font-manjari); font-weight: 700; font-size: 0.55rem;
-          letter-spacing: 0.24em; text-transform: uppercase; color: var(--c-ink-muted);
-        }
-        .ent-stats-row{ display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 1.5rem; }
-        .ent-stat{ border-top: 2px solid var(--ent-pink); padding-top: 0.9rem; }
-        .ent-stat strong{
-          display: block; font-family: var(--font-sans); font-weight: 700;
-          font-size: clamp(1.9rem, 4.5vw, 2.9rem); line-height: 1;
-          letter-spacing: -0.03em; color: var(--c-ink); margin-bottom: 0.4rem;
-        }
-        .ent-stat span{ font-family: var(--font-sans); font-size: 0.78rem; line-height: 1.4; color: var(--c-ink-muted); }
+        .ent-shot{ margin-top: 2.5rem; }
 
         /* ── Colour zoning ──
            Each strip takes a background sampled from the artwork it carries,
@@ -678,6 +523,8 @@ export default function EntroraPage() {
         .ent-zone-flagship .ent-eyebrow,
         .ent-zone-flagship .ent-stats-label{ color: #55606A; }
         .ent-zone-flagship .ent-shot{ border-color: rgba(20,24,27,0.10); background: #FFFFFF; }
+        .ent-zone-flagship .ent-pill-ghost{ color: #14181B; border-color: rgba(20,24,27,0.18); }
+        .ent-zone-flagship .ent-pill-ghost:hover{ border-color: var(--ent-pink); color: var(--ent-pink); }
 
         /* Sampled from the Ynai screen: black with a green cast. */
         .ent-zone-ynai{
@@ -757,15 +604,6 @@ export default function EntroraPage() {
         .ent-news-art{ border: 1px solid var(--c-border); border-radius: 14px; background: var(--c-bg); overflow: hidden; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; }
         .ent-news-img{ width: 100%; height: 100%; object-fit: contain; display: block; }
 
-        /* ── Footer ── */
-        .ent-footer{ border-top: 1px solid var(--c-border); padding: 2.5rem 0; }
-        .ent-footer-inner{ display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
-        .ent-footer-inner strong{ display: block; font-family: var(--font-sans); font-weight: 600; font-size: 0.9rem; color: var(--c-ink); }
-        .ent-footer-inner span{ font-family: var(--font-sans); font-size: 0.78rem; color: var(--c-ink-muted); }
-        .ent-footer-links{ display: flex; gap: 1.75rem; flex-wrap: wrap; }
-        .ent-footer-links a{ font-family: var(--font-sans); font-size: 0.8rem; color: var(--c-ink-muted); text-decoration: none; }
-        .ent-footer-links a:hover{ color: var(--ent-pink); }
-
         @media(max-width:900px){
           /* Side by side, the headline was being squeezed into 164px on a
              phone. The art drops below the copy instead. */
@@ -778,11 +616,6 @@ export default function EntroraPage() {
           .ent-pillar{ border-left: none; padding-left: 0; border-top: 1px solid var(--c-border); padding-top: 1rem; }
           .ent-pillar:first-child{ border-top: 1px solid var(--c-border); padding-top: 1rem; }
         }
-        @media(max-width:820px){
-          .ent-nav, .ent-header-cta{ display: none; }
-          .ent-burger{ display: inline-flex; }
-          .ent-nav-mobile{ display: flex; }
-        }
         @media(max-width:640px){
           .ent-news{ grid-template-columns: 1fr; }
           .ent-contact{ grid-template-columns: 1fr; }
@@ -790,7 +623,6 @@ export default function EntroraPage() {
           .ent-partner{ grid-template-columns: 1fr; }
           .ent-partner-art{ max-width: 17rem; }
           .ent-news-art{ max-width: 11rem; }
-          .ent-pill{ padding: 0.8rem 1.4rem; }
         }
       `}</style>
     </div>
