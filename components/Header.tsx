@@ -11,7 +11,7 @@ export function Header() {
     <header className="ent-header">
       <div className="ent-header-inner">
         <Link href="/" className="ent-brand">
-          <Image src="/entrora_logo.jpg" alt="" width={200} height={200} priority className="ent-brand-mark" />
+          <Image src="/entrora_logo.svg" alt="" width={64} height={64} priority className="ent-brand-mark" />
           <span className="ent-brand-text">
             <strong>Entrora</strong>
             <em>Legal Engineering</em>

@@ -258,7 +258,7 @@ export default function EntroraPage() {
 
             <div className="ent-prod ent-prod-wide">
               <div className="ent-prod-mark">
-                <Image src="/entrora_logo.jpg" alt="Entrora" width={200} height={200} className="ent-prod-img" />
+                <Image src="/entrora_logo.svg" alt="Entrora" width={64} height={64} className="ent-prod-img" />
               </div>
               <h3>Entrora LPMS</h3>
               <span className="ent-prod-kicker">Legal Practice Management System</span>
