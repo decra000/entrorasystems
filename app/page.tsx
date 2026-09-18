@@ -175,8 +175,8 @@ export default function EntroraPage() {
               </div>
 
               <p className="ent-lead">
-                We build the bridge between law and technology to create ethical, compliant and impactful
-                solutions for <span className="ent-accent">African realities</span>.
+                We create the technical infrastructure for{" "}
+                <span className="ent-accent">legal ecosystems</span> being impacted by technology.
               </p>
 
               <div className="ent-cta-row">
