@@ -474,13 +474,12 @@ export default function EntroraPage() {
            the host site's tokens. Pink is the brand's second colour and has
            no equivalent in the design system here. */
         .ent-page{
-          --ent-pink: #E1568A;
-          --ent-green: #14503C;
+          --ent-pink: #F07FA8;
+          --ent-green: #3E8F73;
           --ent-ink: var(--c-ink);
           background: var(--c-bg);
           padding-top: 0;
         }
-        [data-theme="dark"] .ent-page{ --ent-pink: #F07FA8; --ent-green: #3E8F73; }
 
         .ent-wrap{ max-width: 68rem; margin: 0 auto; padding: 0 var(--space-x); width: 100%; }
         .ent-pink{ color: var(--ent-pink); }
@@ -602,9 +601,8 @@ export default function EntroraPage() {
           border: 1px solid var(--c-border-strong); border-radius: 999px;
           padding: 0.45rem 1.1rem;
           font-family: var(--font-manjari); font-weight: 700; font-size: 0.55rem;
-          letter-spacing: 0.2em; text-transform: uppercase; color: var(--ent-green);
+          letter-spacing: 0.2em; text-transform: uppercase; color: var(--ent-pink);
         }
-        [data-theme="dark"] .ent-chip{ color: var(--ent-pink); }
 
         .ent-evolution{ display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1.3fr); gap: clamp(1.25rem, 3vw, 2.5rem); align-items: center; margin-bottom: 3rem; }
         .ent-prod{ border: 1px solid var(--c-border); border-radius: 14px; background: var(--c-bg); padding: 1.5rem; }

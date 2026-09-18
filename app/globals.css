@@ -5,24 +5,18 @@
   just the tokens this page actually uses: --font-sans, --font-manjari, the
   ink/bg/border tokens, --space-x. Entrora's own --ent-pink/--ent-green
   are defined inline on .ent-page in app/page.tsx, not here.
+
+  Dark is the default palette (not a JS-applied [data-theme="dark"]
+  override): this standalone page has no theme toggle, so a script that
+  reads localStorage and flips an attribute before hydration just adds a
+  fragile early-script dependency for no behavioural benefit. Making dark
+  the plain :root default means the right theme renders even with no JS.
 */
 
 :root {
   --font-sans:    'Plus Jakarta Sans', sans-serif;
   --font-manjari: 'Manjari', sans-serif;
 
-  --c-bg:            #F5F4F1;
-  --c-surface:       #FAFAF8;
-  --c-ink:           #0D0D0D;
-  --c-ink-mid:       #2E2E2E;
-  --c-ink-muted:     #696969;
-  --c-border:        rgba(13,13,13,0.08);
-  --c-border-strong: rgba(13,13,13,0.16);
-
-  --space-x: clamp(1.5rem, 5.5vw, 7rem);
-}
-
-[data-theme="dark"] {
   --c-bg:            #0A0A0A;
   --c-surface:       #111111;
   --c-ink:           #F0EDE8;
@@ -30,6 +24,8 @@
   --c-ink-muted:     #7A7268;
   --c-border:        rgba(240,237,232,0.07);
   --c-border-strong: rgba(240,237,232,0.14);
+
+  --space-x: clamp(1.5rem, 5.5vw, 7rem);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
