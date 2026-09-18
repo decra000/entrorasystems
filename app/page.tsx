@@ -371,7 +371,7 @@ export default function EntroraPage() {
             <div>
               <h2 className="ent-h2">Lex &amp; Latte.</h2>
               <p className="ent-body">
-                Essential legal insights, tips and updates for techpreneurs, published biweekly by Entrora.
+                A legal tech newsletter: essential insights, tips and updates, published biweekly by Entrora.
               </p>
               <p className="ent-body ent-body-sm">
                 It arrives through LinkedIn, it is free, and you can leave whenever you like.
