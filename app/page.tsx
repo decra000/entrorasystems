@@ -32,7 +32,6 @@ const fade = (vis: boolean, delay = 0): React.CSSProperties => ({
 
 const PILLARS = [
   { t: "Tech for Law", b: "Better legal systems through technology." },
-  { t: "Law for Tech", b: "Responsible innovation through legal clarity." },
   { t: "Legal Engineering", b: "Designing systems where law and technology work together." },
 ];
 
@@ -167,8 +166,8 @@ export default function EntroraPage() {
           <div className="ent-hero-grid">
             <div>
               <h1 className="ent-h1">
-                <span>Tech for Law.</span>
-                <span className="ent-pink">Law for Tech.</span>
+                <span>Tech</span>
+                <span className="ent-pink">for Law.</span>
               </h1>
 
               <div className="ent-dashes" aria-hidden>
@@ -445,8 +444,8 @@ export default function EntroraPage() {
 
         .ent-pillars{
           position: relative; z-index: 1;
-          display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: 2rem; max-width: 52rem;
+          display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 2rem; max-width: 34rem;
         }
         .ent-pillar{ border-left: 1px solid var(--c-border); padding-left: 1.25rem; }
         .ent-pillar:first-child{ border-left: none; padding-left: 0; }

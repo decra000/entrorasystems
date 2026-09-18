@@ -14,46 +14,44 @@ export const metadata: Metadata = {
 };
 
 const PIPELINE = [
-  { t: "Engagement", b: "An instruction is recorded once, whichever door it came through: a referral, a call, the intake form." },
-  { t: "Matter", b: "Conflict clearance is a documented decision before a matter opens, not a search that happened once and was forgotten." },
-  { t: "Work item", b: "The matter's activity sits in a pull queue, or is pushed directly, with dependencies on what has to finish first." },
-  { t: "Assignment", b: "Claiming work is a recorded handover, not a status change, so ownership history survives reassignment." },
-  { t: "Deliverable", b: "What the work owes is tracked separately from what it produced, so a stalled task is visible before a deadline is." },
-  { t: "Document", b: "The evidence, versioned, access-logged, and flagged for privilege where it applies." },
+  { t: "A new enquiry", b: "Checked against the firm's own history for the same names, the same case, the same opposing side, before it's ever accepted." },
+  { t: "The matter, working", b: "Every task has an owner and a deadline, and a clear next step, so nothing sits in an inbox waiting to be remembered." },
+  { t: "Time & billing", b: "Hours logged against a matter become an invoice for that matter, at the firm's own rates, without a spreadsheet in between." },
+  { t: "The record", b: "Every document kept, versioned, and access-logged, with privilege protected where it needs to be." },
 ];
 
 const FEATURES = [
   {
-    t: "Intake & conflict clearance",
-    b: "A submission is triaged with real conflict search across existing matters, opposing parties, and case numbers, eight party-role types, risk-ranked results. Promotion to a matter carries that decision with it, not a note that it happened.",
+    t: "Conflict checks that actually check",
+    b: "Before a matter opens, the system searches the firm's existing files for the same names, the same case, the same opposing side, and shows what it finds, ranked by risk. No matter opens on a search nobody did.",
   },
   {
-    t: "Matter lifecycle",
-    b: "Lead, conflict check, engagement letter, retainer pending, open, on hold or closed, archived or declined. One lifecycle, multi-practice matters supported natively rather than forced into a single area.",
+    t: "Matters that keep their shape",
+    b: "Every matter moves through the same disciplined stages from first contact to close, and can belong to more than one practice area without getting misfiled under just one.",
   },
   {
-    t: "Assignments & SLAs",
-    b: "Work carries dependencies, due dates, and an ownership history. Reassignment doesn't erase who held it before, and a task can be broken down without losing the parent.",
+    t: "Work that has an owner",
+    b: "Every task is claimed, not just assigned, every claim is dated, and a task can depend on the one before it finishing first. Nothing gets picked up twice, and nothing quietly stalls.",
   },
   {
-    t: "Time & billing",
-    b: "Time entries by minute, rate, and billable flag. Invoices compute subtotals and VAT server-side and get a real number. Fee schedules are firm-controlled reference data, not hardcoded into a form.",
+    t: "Billing that follows the work",
+    b: "Time logged against a matter becomes an invoice for that matter, at the firm's own rates, with the tax handled and a real invoice number attached.",
   },
   {
-    t: "Documents & records",
-    b: "Version history with a current-version pointer, a per-document access log recording who, what, and when, and a privilege flag for what needs to stay attorney-client.",
+    t: "Documents you can stand behind",
+    b: "Every version kept, every access recorded, privilege flagged where it applies. If anyone ever asks who touched a file and when, the answer already exists.",
   },
   {
-    t: "Client portal",
-    b: "A client sees their matters, documents, and invoices, with status that reflects the same records staff work from. A prospective client can track a submission by code without an account.",
+    t: "One portal, the same truth",
+    b: "Clients see their own matters, documents and invoices, drawn from the same records staff work from, never a separate, out-of-date copy. A prospective client can check where their enquiry stands without needing an account.",
   },
   {
-    t: "Admin assistant",
-    b: "A tool-calling assistant that can query and act on the firm's own data, but nothing it proposes to create, change, or send executes without confirmation first.",
+    t: "An assistant that asks first",
+    b: "Staff can ask the system to find, summarise or draft against the firm's own data. It proposes; a person still has to say yes before anything is created, changed, or sent.",
   },
   {
-    t: "Calendar & deadlines",
-    b: "Court dates, holidays, and firm events in one calendar, with deadline tracking that reasons about a matter's actual stage rather than a fixed reminder.",
+    t: "A calendar that knows the stakes",
+    b: "Court dates, holidays and deadlines in one place, timed to where a matter actually stands rather than a generic reminder.",
   },
 ];
 
@@ -66,10 +64,10 @@ const PRACTICE_AREAS = [
 ];
 
 const STATS = [
-  { n: "6", l: "Stages, one auditable story: engagement to document" },
   { n: "15+", l: "Practice areas covered out of the box" },
-  { n: "4", l: "Domain engines: conflict, deadlines, risk, documents" },
-  { n: "1", l: "Admin assistant, confirm-before-acting by design" },
+  { n: "1", l: "Portal, always in sync with what staff see" },
+  { n: "0", l: "Spreadsheets between time logged and an invoice sent" },
+  { n: "1", l: "Assistant that never acts without asking first" },
 ];
 
 export default function LpmsPage() {
@@ -116,11 +114,11 @@ export default function LpmsPage() {
       <section className="ent-section ent-tint">
         <div className="ent-wrap">
           <Eyebrow text="How it works" />
-          <h2 className="ent-h2">Six stages, one story.</h2>
+          <h2 className="ent-h2">From first enquiry to final invoice.</h2>
           <p className="ent-body ent-measure">
-            Every one of these is a real record with its own history, not a label on a shared table.
-            That&apos;s what makes the audit trail a byproduct of using the system, rather than a report
-            someone has to assemble afterwards.
+            One system carries a matter the whole way through, so nothing has to be re-entered, re-checked,
+            or reconstructed later. The trail of who did what and when is a byproduct of using it, not a
+            report someone has to assemble afterwards.
           </p>
 
           <div className="lp-pipeline">
@@ -144,8 +142,8 @@ export default function LpmsPage() {
           <Eyebrow text="What's inside" />
           <h2 className="ent-h2">Built for how a practice actually runs.</h2>
           <p className="ent-body ent-measure">
-            Not a to-do list with a legal skin. Every module below exists because a firm running the system
-            needed it to be real, not because it demos well.
+            Not a to-do list with a legal skin. Every module below is built to be used daily by a real
+            practice, not to look good in a demo.
           </p>
 
           <div className="lp-features">
@@ -236,7 +234,7 @@ export default function LpmsPage() {
           color: var(--ent-pink); opacity: 0.5;
         }
         @media(min-width: 821px){
-          .lp-pipeline{ grid-template-columns: repeat(6, 1fr); }
+          .lp-pipeline{ grid-template-columns: repeat(4, 1fr); }
           .lp-pipe-arrow{ display: block; }
         }
 
