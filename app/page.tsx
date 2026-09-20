@@ -338,13 +338,10 @@ export default function EntroraPage() {
         <div ref={partRef as React.RefObject<HTMLDivElement>} className="ent-wrap" style={fade(partVis)}>
           <Eyebrow text="In partnership" />
           <div className="ent-partner">
-            <div className="ent-partner-art">
-              <Image src="/ynai-app.png" alt="The Ynai app" width={1024} height={1536} className="ent-partner-img" />
-            </div>
             <div>
               <h2 className="ent-h2">Partnering with Ynai.</h2>
               <p className="ent-body">
-                Entrora is partnering with Ynai, a bar preparation app for advocates.
+                Entrora is partnering with Ynai, on a bar preparation app for advocates.
               </p>
               <a href={YNAI_URL} target="_blank" rel="noopener noreferrer" className="ent-pill ent-pill-solid">
                 Visit Ynai <ExternalLink size={12} strokeWidth={2} />
@@ -515,7 +512,6 @@ export default function EntroraPage() {
         .ent-zone-ynai .ent-body-sm{ color: #9AA098; }
         .ent-zone-ynai .ent-eyebrow{ color: #85A895; }
         .ent-zone-ynai .ent-rule{ background: #6FA084; }
-        .ent-zone-ynai .ent-partner-art{ border-color: rgba(255,255,255,0.12); }
         .ent-zone-ynai .ent-pill-solid{ background: var(--ent-accent); color: #FFFFFF; }
         .ent-zone-ynai .ent-pill-solid:hover{ background: #6FA084; color: #0B0F0C; }
 
@@ -543,9 +539,7 @@ export default function EntroraPage() {
 
         .ent-contact{ display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
 
-        .ent-partner{ display: grid; grid-template-columns: minmax(0, 0.55fr) minmax(0, 1fr); gap: clamp(1.5rem, 5vw, 4rem); align-items: center; }
-        .ent-partner-art{ border: 1px solid var(--c-border); border-radius: 18px; overflow: hidden; background: #0A0A0A; }
-        .ent-partner-img{ width: 100%; height: auto; display: block; }
+        .ent-partner{ max-width: 34rem; }
 
 
         /* ── Newsletter ── */
@@ -568,8 +562,6 @@ export default function EntroraPage() {
         @media(max-width:640px){
           .ent-news{ grid-template-columns: 1fr; }
           .ent-contact{ grid-template-columns: 1fr; }
-          .ent-partner{ grid-template-columns: 1fr; }
-          .ent-partner-art{ max-width: 17rem; }
           .ent-news-art{ max-width: 11rem; }
         }
       `}</style>
