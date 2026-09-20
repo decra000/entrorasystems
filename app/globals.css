@@ -134,6 +134,30 @@ img { max-width: 100%; display: block; }
 }
 .ent-stat span{ font-family: var(--font-sans); font-size: 0.78rem; line-height: 1.4; color: var(--c-ink-muted); }
 
+/* ── Forms ── */
+.ent-form{ display: flex; flex-direction: column; gap: 1.1rem; }
+.ent-field-row{ display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+.ent-field{ display: flex; flex-direction: column; gap: 0.45rem; }
+.ent-field > span{
+  font-family: var(--font-manjari); font-weight: 700; font-size: 0.55rem;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-ink-muted);
+}
+.ent-field > span em{ font-style: normal; opacity: 0.6; }
+.ent-field input, .ent-field textarea, .ent-field select{
+  font-family: var(--font-sans); font-size: 0.9rem; color: var(--c-ink);
+  background: var(--c-bg); border: 1px solid var(--c-border-strong);
+  border-radius: 10px; padding: 0.8rem 0.9rem; width: 100%;
+  transition: border-color 0.2s ease;
+}
+.ent-field textarea{ resize: vertical; min-height: 7rem; }
+.ent-field input:focus, .ent-field textarea:focus, .ent-field select:focus{ outline: none; border-color: var(--ent-accent); }
+.ent-form-foot{ display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.ent-form button[disabled]{ opacity: 0.6; cursor: default; }
+.ent-form-error{ font-family: var(--font-sans); font-size: 0.8rem; color: #A8402F; }
+.ent-form-done{ border: 1px solid var(--c-border); border-radius: 14px; padding: 2rem; background: var(--c-surface); }
+.ent-form-done h3{ font-family: var(--font-sans); font-weight: 600; font-size: 1.05rem; color: var(--c-ink); margin-bottom: 0.6rem; }
+.ent-form-done p{ font-family: var(--font-sans); font-size: 0.85rem; line-height: 1.6; color: var(--c-ink-muted); }
+
 /* ── Footer ── */
 .ent-footer{ border-top: 1px solid var(--c-border); padding: 2.5rem 0; }
 .ent-footer-inner{ display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
@@ -150,4 +174,5 @@ img { max-width: 100%; display: block; }
 }
 @media(max-width:640px){
   .ent-pill{ padding: 0.8rem 1.4rem; }
+  .ent-field-row{ grid-template-columns: 1fr; }
 }

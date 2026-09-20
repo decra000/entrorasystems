@@ -6,7 +6,7 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Eyebrow } from "@/components/Eyebrow";
-import { ENTRORA_LINKEDIN, NEWSLETTER_URL, DEMO_URL, YNAI_URL, CONTACT_API_URL } from "@/lib/constants";
+import { ENTRORA_LINKEDIN, NEWSLETTER_URL, YNAI_URL, CONTACT_API_URL } from "@/lib/constants";
 
 /* Entrora, standalone: extracted from decrakerubo.com/entrora so it can be
    deployed and, eventually, domained on its own. The one thing that wasn't
@@ -267,9 +267,9 @@ export default function EntroraPage() {
                 <Link href="/lpms" className="ent-pill ent-pill-ghost">
                   Explore Entrora LPMS <ArrowRight size={13} strokeWidth={2} />
                 </Link>
-                <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="ent-pill ent-pill-solid">
+                <Link href="/lpms#demo" className="ent-pill ent-pill-solid">
                   Book a demo <ArrowRight size={13} strokeWidth={2} />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -301,9 +301,9 @@ export default function EntroraPage() {
                 <Link href="/lpms" className="ent-pill ent-pill-ghost">
                   Full product page <ArrowRight size={13} strokeWidth={2} />
                 </Link>
-                <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="ent-pill ent-pill-solid">
+                <Link href="/lpms#demo" className="ent-pill ent-pill-solid">
                   Book a demo <ArrowRight size={13} strokeWidth={2} />
-                </a>
+                </Link>
               </div>
             </div>
             <p className="ent-body ent-measure">
@@ -339,18 +339,12 @@ export default function EntroraPage() {
           <Eyebrow text="In partnership" />
           <div className="ent-partner">
             <div className="ent-partner-art">
-              <Image src="/ynai-app.png" alt="The Ynai app, a Kenya Bar Exam study companion" width={1024} height={1536} className="ent-partner-img" />
+              <Image src="/ynai-app.png" alt="The Ynai app" width={1024} height={1536} className="ent-partner-img" />
             </div>
             <div>
-              <h2 className="ent-h2">Simplifying the Kenyan bar, with Ynai.</h2>
+              <h2 className="ent-h2">Partnering with Ynai.</h2>
               <p className="ent-body">
-                Ynai is a study companion for the Kenya Bar Exam: units, practice questions, mock exams and
-                progress tracking in one place. Entrora partners with Ynai on the same problem the LPMS
-                addresses from the other end, which is that the route into practice in this country is
-                harder to navigate than it needs to be.
-              </p>
-              <p className="ent-body ent-body-sm">
-                One side prepares people to qualify. The other gives them a practice worth walking into.
+                Entrora is partnering with Ynai, a bar preparation app for advocates.
               </p>
               <a href={YNAI_URL} target="_blank" rel="noopener noreferrer" className="ent-pill ent-pill-solid">
                 Visit Ynai <ExternalLink size={12} strokeWidth={2} />
@@ -549,29 +543,6 @@ export default function EntroraPage() {
 
         .ent-contact{ display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
 
-        .ent-form{ display: flex; flex-direction: column; gap: 1.1rem; }
-        .ent-field-row{ display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
-        .ent-field{ display: flex; flex-direction: column; gap: 0.45rem; }
-        .ent-field > span{
-          font-family: var(--font-manjari); font-weight: 700; font-size: 0.55rem;
-          letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-ink-muted);
-        }
-        .ent-field > span em{ font-style: normal; opacity: 0.6; }
-        .ent-field input, .ent-field textarea{
-          font-family: var(--font-sans); font-size: 0.9rem; color: var(--c-ink);
-          background: var(--c-bg); border: 1px solid var(--c-border-strong);
-          border-radius: 10px; padding: 0.8rem 0.9rem; width: 100%;
-          transition: border-color 0.2s ease;
-        }
-        .ent-field textarea{ resize: vertical; min-height: 7rem; }
-        .ent-field input:focus, .ent-field textarea:focus{ outline: none; border-color: var(--ent-accent); }
-        .ent-form-foot{ display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
-        .ent-form button[disabled]{ opacity: 0.6; cursor: default; }
-        .ent-form-error{ font-family: var(--font-sans); font-size: 0.8rem; color: #A8402F; }
-        .ent-form-done{ border: 1px solid var(--c-border); border-radius: 14px; padding: 2rem; background: var(--c-surface); }
-        .ent-form-done h3{ font-family: var(--font-sans); font-weight: 600; font-size: 1.05rem; color: var(--c-ink); margin-bottom: 0.6rem; }
-        .ent-form-done p{ font-family: var(--font-sans); font-size: 0.85rem; line-height: 1.6; color: var(--c-ink-muted); }
-
         .ent-partner{ display: grid; grid-template-columns: minmax(0, 0.55fr) minmax(0, 1fr); gap: clamp(1.5rem, 5vw, 4rem); align-items: center; }
         .ent-partner-art{ border: 1px solid var(--c-border); border-radius: 18px; overflow: hidden; background: #0A0A0A; }
         .ent-partner-img{ width: 100%; height: auto; display: block; }
@@ -597,7 +568,6 @@ export default function EntroraPage() {
         @media(max-width:640px){
           .ent-news{ grid-template-columns: 1fr; }
           .ent-contact{ grid-template-columns: 1fr; }
-          .ent-field-row{ grid-template-columns: 1fr; }
           .ent-partner{ grid-template-columns: 1fr; }
           .ent-partner-art{ max-width: 17rem; }
           .ent-news-art{ max-width: 11rem; }
